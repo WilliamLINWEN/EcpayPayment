@@ -19,10 +19,9 @@ module ECpayPayment
 
   class ECpayQueryClient
 
-    def initialize
-      @helper = APIHelper.new
+    def initialize(merchant_id: nil, hash_key: nil, hash_iv: nil, mode: 'Test')
+      @helper = APIHelper.new(mode, merchant_id, hash_key, hash_iv)
       #@verify_query_api = QueryTradeInfoParamVerify.new
-
     end
 
     def create_server_order(param)

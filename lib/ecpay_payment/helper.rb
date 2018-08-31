@@ -11,18 +11,22 @@ class APIHelper
     conf = File.join(File.dirname(__FILE__), '..', '..', 'conf', 'payment_conf.xml')
     @@conf_xml = Nokogiri::XML(File.open(conf))
 
-    def initialize
+    def initialize(mode, merchant_id, hash_key, hash_iv)
         active_merc_info = @@conf_xml.xpath('/Conf/MercProfile').text
-        @op_mode = @@conf_xml.xpath('/Conf/OperatingMode').text
+        # @op_mode = @@conf_xml.xpath('/Conf/OperatingMode').text
+        @op_mode = mode
         @contractor_stat = @@conf_xml.xpath('/Conf/IsProjectContractor').text
         merc_info = @@conf_xml.xpath("/Conf/MerchantInfo/MInfo[@name=\"#{active_merc_info}\"]")
         @ignore_payment = []
         @@conf_xml.xpath('/Conf/IgnorePayment//Method').each {|t| @ignore_payment.push(t.text)}
-        if merc_info != []
+        if mode == 'Production'
+            @merc_id = merchant_id
+            @hkey = hash_key
+            @hiv = hash_iv
+        elsif mode == 'Test'
             @merc_id = merc_info[0].xpath('./MerchantID').text.freeze
             @hkey = merc_info[0].xpath('./HashKey').text.freeze
             @hiv = merc_info[0].xpath('./HashIV').text.freeze
-
         else
             raise "Specified merchant setting name (#{active_merc_info}) not found."
         end
