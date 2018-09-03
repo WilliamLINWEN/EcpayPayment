@@ -270,8 +270,10 @@ module ECpayPayment
           raise ECpayInvalidParam, %Q{Parameter value cannot be nil}
         end
         #1. 比對欄位是否缺乏
+        options_items = ["CustomerID", "CustomerName", "CustomerAddr", "CustomerPhone", "CustomerEmail", "ClearanceMark",
+                         "LoveCode", "CarruerType", "CarruerNum", "InvoiceRemark", "ItemTaxType", "ItemRemark", "vat"]
         inv_param_names = @aio_conditional_param['InvoiceMark']['Y']
-        param_diff = inv_param_names - params.keys()
+        param_diff = inv_param_names - options_items - params.keys()
         unless param_diff == []
           raise ECpayInvalidParam, %Q{Lack required invoice param #{param_diff}}
         end

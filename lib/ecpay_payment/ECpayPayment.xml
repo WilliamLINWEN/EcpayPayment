@@ -238,58 +238,52 @@
             <param type="String"  require="1" name="RelateNumber">
                 <pattern>^[\w_\-#$]{0,30}$</pattern>
             </param>
-            <!--
-              <param type="String"  require="1" name="CustomerID">
-                  <pattern>^[\w_]{0,20}$</pattern>
-              </param>
-              <param type="String"  require="1" name="CustomerIdentifier">
-                  <pattern>^(\d{8}|)$</pattern>
-              </param>
-              <param type="String"  require="1" name="CustomerName" urlencode="1">
-                  <pattern>^.{0,20}$</pattern>
-              </param>
-              <param type="String"  require="1" name="CustomerAddr" urlencode="1">
-                  <pattern>^.{0,200}$</pattern>
-              </param>
-              <param type="String"  require="1" name="CustomerPhone">
-                  <pattern>^(\d{10,20}|)$</pattern>
-              </param>
-              <param type="String"  require="1" name="CustomerEmail" urlencode="1">
-                  <pattern>^.{0,200}$</pattern>
-              </param>
-              <param type="Opt"  require="1" name="ClearanceMark">
-                  <option>1</option>
-                  <option>2</option>
-                  <option></option>
-              </param>
-            -->
+            <param type="String"  require="1" name="CustomerID">
+                <pattern>^[\w_]{0,20}$</pattern>
+            </param>
+            <param type="String"  require="1" name="CustomerIdentifier">
+                <pattern>^(\d{8}|)$</pattern>
+            </param>
+            <param type="String"  require="1" name="CustomerName" urlencode="1">
+                <pattern>^.{0,20}$</pattern>
+            </param>
+            <param type="String"  require="1" name="CustomerAddr" urlencode="1">
+                <pattern>^.{0,200}$</pattern>
+            </param>
+            <param type="String"  require="1" name="CustomerPhone">
+                <pattern>^(\d{10,20}|)$</pattern>
+            </param>
+            <param type="String"  require="1" name="CustomerEmail" urlencode="1">
+                <pattern>^.{0,200}$</pattern>
+            </param>
+            <param type="Opt"  require="1" name="ClearanceMark">
+                <option>1</option>
+                <option>2</option>
+                <option></option>
+            </param>
             <param type="Opt"  require="1" name="TaxType">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>9</option>
             </param>
-            <!--
-              <param type="Opt"  require="1" name="CarruerType">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option></option>
-              </param>
-              <param type="String"  require="1" name="CarruerNum">
-                Patten of this column is defined in verification.rb???
-              	<pattern>.{0,16}</pattern>
-              </param>
-            -->
+            <param type="Opt"  require="1" name="CarruerType">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option></option>
+            </param>
+            <param type="String"  require="1" name="CarruerNum">
+              Patten of this column is defined in verification.rb???
+            	<pattern>.{0,16}</pattern>
+            </param>
             <param type="Opt"  require="1" name="Donation">
                 <option>1</option>
                 <option>2</option>
             </param>
-            <!--
-              <param type="String"  require="1" name="LoveCode">
-                  <pattern>^([Xx]\d{2,6}|\d{3,7}|)$</pattern>
-              </param>
-            -->
+            <param type="String"  require="1" name="LoveCode">
+                <pattern>^([Xx]\d{2,6}|\d{3,7}|)$</pattern>
+            </param>
             <param type="Opt"  require="1" name="Print">
                 <option>0</option>
                 <option>1</option>
@@ -309,11 +303,9 @@
             <param type="String"  require="1" name="InvoiceItemTaxType">
                 <pattern>^.{0,4096}$</pattern>
             </param>
-            <!--
-              <param type="String"  require="1" name="InvoiceRemark" urlencode="1">
-                  <pattern>^.{0,4096}$</pattern>
-              </param>
-            -->
+            <param type="String"  require="1" name="InvoiceRemark" urlencode="1">
+                <pattern>^.{0,4096}$</pattern>
+            </param>
             <param type="Int"  require="1" name="DelayDay">
                 <mode>BETWEEN</mode>
                 <maximum>15</maximum>
